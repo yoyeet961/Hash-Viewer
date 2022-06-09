@@ -1,0 +1,50 @@
+# This is not the file, it's just the source
+
+#   Yeah, it's open source.
+import hashlib
+import time
+import os
+
+def hash256_func(filename):
+    sha256_hash = hashlib.sha256()
+    with open(filename,"rb") as f:
+        # Read and update hash string value in blocks of 4K
+        for byte_block in iter(lambda: f.read(4096),b""):
+            sha256_hash.update(byte_block)
+        return sha256_hash.hexdigest()
+
+def hash_func(filename):
+    h=hashlib.sha1()
+
+    with open(filename,'rb') as file:
+        chunk=0
+        while chunk!=b'':
+            chunk=file.read(1024)
+            h.update(chunk)
+        return h.hexdigest()
+
+print("Welcome to Hash Viewer! This will tell you the SHA1 and SHA256 hash of a file of your choice!")
+print("")
+
+dirct = input('Do you wish to change the directory? Leave blank if not: ')
+if dirct == '':
+    filee = input("Enter filename (File must be in the same folder as the .py file!): ")
+    message=hash_func(filee)
+    message2=hash256_func(filee)
+    print("")
+    print(message)
+    print(message2)
+    print("")
+    print("Order: SHA1, SHA256")
+    time.sleep(10000)
+else:
+    os.chdir(dirct)
+    filee = input("Enter filename: ")
+    message=hash_func(filee)
+    message2=hash256_func(filee)
+    print("")
+    print(message)
+    print(message2)
+    print("")
+    print("Order: SHA1, SHA256")
+    time.sleep(10000)
