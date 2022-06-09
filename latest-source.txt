@@ -1,8 +1,18 @@
 #   Yeah, it's open source.
+from fileinput import filename
 import hashlib
 from posixpath import dirname
 import time
 import os
+
+def hash5_func(filename):
+    md5_hash = hashlib.md5()
+
+    a_file = open(filename, "rb")
+    content = a_file.read()
+    md5_hash.update(content)
+    md5 = md5_hash.hexdigest()
+    return md5_hash.hexdigest()
 
 def hash256_func(filename):
     sha256_hash = hashlib.sha256()
@@ -31,30 +41,36 @@ if dirct == '':
     filee = input("Enter filename (File must be in the same folder as the .py file!): ")
     message=hash_func(filee)
     message2=hash256_func(filee)
+    message3=hash5_func(filee)
     print("")
     print(message)
     print(message2)
+    print(message3)
     print("")
-    print("Order: SHA1, SHA256")
+    print("Order: SHA1, SHA256, MD5")
     time.sleep(10000)
 else:
     os.chdir(dirct)
     filee = input("Enter filename: ")
     message=hash_func(filee)
     message2=hash256_func(filee)
+    message3=hash5_func(filee)
     print("")
     print(message)
     print(message2)
+    print(message3)
     print("")
-    print("Order: SHA1, SHA256")
+    print("Order: SHA1, SHA256, MD5")
     time.sleep(10000)
 if dirct == os.path.dirname(os.path.realpath(__file__)):
     filee = input("Enter filename: ")
     message=hash_func(filee)
     message2=hash256_func(filee)
+    message3=hash5_func(filee)
     print("")
     print(message)
     print(message2)
+    print(message3)
     print("")
-    print("Order: SHA1, SHA256")
+    print("Order: SHA1, SHA256, MD5")
     time.sleep(10000)
