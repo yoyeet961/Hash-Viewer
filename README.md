@@ -4,7 +4,7 @@ Check file hashes, the safer way. Especially because it's open source.
 ## Installation
 You will need python for this. To install python, go to https://www.python.org/downloads and download it.
 
-So, when you get python, run the application TheApp.py
+So, when you get python, run the application HashViewer.py
 
 That's it for installation!
 
@@ -20,4 +20,4 @@ Then, you'll have to input the filename of the file, so it can scan it for the h
 
 Example: docs.txt
 
-Then, you'll see 2 weird spam stuff. They are the hashes of the file! The order of them is: SHA1, SHA256.
+Then, you'll see 3 weird spam stuff. They are the hashes of the file! The order of them is: SHA1, SHA256, MD5.
