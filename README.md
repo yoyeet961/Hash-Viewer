@@ -10,7 +10,6 @@ That's it for installation!
 
 ## Using the Tool
 When you launch it, you will see a prompt if you want to change the directory or not.
-WARNING: Do not input the directory of the folder of the file, or else the application will crash. I might fix that later, this is the 1.0 (stable release) version anyways.
 
 So. If the file is not located in the same folder as the python file, then you can just input it's directory in there.
 
