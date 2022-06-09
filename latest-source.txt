@@ -1,7 +1,6 @@
-# This is not the file, it's just the source
-
 #   Yeah, it's open source.
 import hashlib
+from posixpath import dirname
 import time
 import os
 
@@ -26,6 +25,7 @@ def hash_func(filename):
 print("Welcome to Hash Viewer! This will tell you the SHA1 and SHA256 hash of a file of your choice!")
 print("")
 
+
 dirct = input('Do you wish to change the directory? Leave blank if not: ')
 if dirct == '':
     filee = input("Enter filename (File must be in the same folder as the .py file!): ")
@@ -39,6 +39,16 @@ if dirct == '':
     time.sleep(10000)
 else:
     os.chdir(dirct)
+    filee = input("Enter filename: ")
+    message=hash_func(filee)
+    message2=hash256_func(filee)
+    print("")
+    print(message)
+    print(message2)
+    print("")
+    print("Order: SHA1, SHA256")
+    time.sleep(10000)
+if dirct == os.path.dirname(os.path.realpath(__file__)):
     filee = input("Enter filename: ")
     message=hash_func(filee)
     message2=hash256_func(filee)
